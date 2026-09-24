@@ -1,3 +1,4 @@
+from re import sub
 """
 Modul-Dokumentation -- Ähnlich zu JavaDoc.
 Wird angezeigt z.B. mit help(__name__)
@@ -20,7 +21,7 @@ def is_palindrom(s:str) -> bool:
     True
     >>> is_palindrom('Anno')
     False
-    >>> is_palindrom('Was it a cat you saw')
+    >>> is_palindrom('Was it a cat you saw?')
     False
     >>> is_palindrom('420024')
     True
@@ -30,6 +31,7 @@ def is_palindrom(s:str) -> bool:
     AttributeError: 'int' object has no attribute 'lower'
     """
     s = s.lower()
+    s = sub(r"[\s\W_]+", "", s)
     return s == s[::-1]
 
 def is_palindrom_sentence(s:str) -> bool:
@@ -39,9 +41,9 @@ def is_palindrom_sentence(s:str) -> bool:
     True
     >>> is_palindrom_sentence('Anno')
     False
-    >>> is_palindrom_sentence('Was it a car or a cat I saw')
+    >>> is_palindrom_sentence('Was it a car or a cat I saw?')
     True
-    >>> is_palindrom_sentence('Was it a cat you saw')
+    >>> is_palindrom_sentence('Was it a cat you saw?')
     False
     >>> is_palindrom_sentence(420)
     Traceback (most recent call last):
@@ -50,7 +52,10 @@ def is_palindrom_sentence(s:str) -> bool:
     """
 
     s = s.lower().replace(' ', '')
+    s = sub(r"[\s\W_]+", "", s)
     return s == s[::-1]
+
+
 
 def main() -> None:
     is_palindrom('Anna')
