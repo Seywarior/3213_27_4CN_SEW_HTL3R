@@ -84,10 +84,42 @@ def palindrom_product(x:int) -> int:
                     biggest = i * j
     return biggest
 
+def get_dec_hex_palindrom(x:int) -> int:
+    return 0
+
+def to_base(number: int, base: int) -> str:
+    """
+    :param number: Zahl im 10er-Syste,
+    :param base: Zielsystem (maximal 36)
+    :return: Zahl im Zielsystem als String
+    >>> to_base(1234,16)
+    '4D2'
+    """
+    num = ''
+    if base < 0:
+        base = abs(base)
+    if number == 0:
+        return '0'
+    if 0 < base <= 36:
+        ZIFFERN = ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+               'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+               'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+               'U', 'V', 'W', 'X', 'Y', 'Z')
+        while number > 0:
+            num += ZIFFERN[number % base]
+            number //= base
+    return num[::-1]
+
+
 def main() -> None:
+    """
     is_palindrom('Anna')
     is_palindrom_sentence("Was it a car or a cat I saw")
     palindrom_product(1)
+    :return:
+    """
+    to_base(10, 10)
+
 
 if __name__ == "__main__":
     main()
