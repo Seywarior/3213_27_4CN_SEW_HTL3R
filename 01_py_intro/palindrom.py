@@ -1,4 +1,3 @@
-from re import sub
 """
 Modul-Dokumentation -- Ähnlich zu JavaDoc.
 Wird angezeigt z.B. mit help(__name__)
@@ -7,6 +6,8 @@ Beispiel:
 >>> is_palindrom('Anna')
 True
 """
+
+from re import sub
 
 # Metadaten zu dieser Datei:
 __author__ = "Tobias Wiedeck"
@@ -17,7 +18,7 @@ __license__ = "GNU GPLv3"
 def is_palindrom(s:str) -> bool:
     """
     Diese Funktion überprüft ob der String s ein Palindrom ist.
-    :param s:
+    :param s: Der String der überprüft wird
     >>> is_palindrom('Anna')
     True
     >>> is_palindrom('Anno')
@@ -39,7 +40,7 @@ def is_palindrom_sentence(s:str) -> bool:
     """
     Diese Funktion hat zusätzlich zur oberen die Möglichkeit
     ganze Sätze auf Palindrome zu checken.
-    :param s: str
+    :param s: str Ist der String der überprüft wird
     >>> is_palindrom_sentence('Anna')
     True
     >>> is_palindrom_sentence('Anno')
@@ -62,7 +63,8 @@ def palindrom_product(x:int) -> int:
     """
     Diese Funktion berechnet das größt mögliche
     Palindrom von zwei 3 stelligen Zahlen.
-    :param x:
+    :param x: Bestimmt die Obergrenze des Palindroms
+    :return: Gibt das Produkt zurück
     >>> palindrom_product(1000000)
     906609
     >>> palindrom_product(1000)
@@ -85,6 +87,16 @@ def palindrom_product(x:int) -> int:
     return biggest
 
 def get_dec_hex_palindrom(x:int) -> int:
+    """
+    Diese Funktion überprüft ob eine Zahl kleiner x sowohl in dezimal als auch in Hexadezimal Darstellung ein Palindrom ist.
+    :param x: Obergenze die das Palindrom annehmen kann
+    :return: Gibt die Zahl zurück die die Kriterien erfüllt
+    """
+    if x <= 0:
+        return 0
+    for i in range (x - 1, 0, -1):
+        if is_palindrom(str(i)) and is_palindrom(to_base(i, 16)):
+            return i
     return 0
 
 def to_base(number: int, base: int) -> str:
