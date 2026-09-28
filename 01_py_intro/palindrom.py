@@ -11,11 +11,12 @@ from re import sub
 
 # Metadaten zu dieser Datei:
 __author__ = "Tobias Wiedeck"
-__example__ = "SEW4/01/F" #Gegenstand/Übungsblatt/Aufgabe(Kapitel)
+__example__ = "SEW4/01/F"  # Gegenstand/Übungsblatt/Aufgabe(Kapitel)
 __date__ = "24.09.2026"
 __license__ = "GNU GPLv3"
 
-def is_palindrom(s:str) -> bool:
+
+def is_palindrom(s: str) -> bool:
     """
     Diese Funktion überprüft ob der String s ein Palindrom ist.
     :param s: Der String der überprüft wird
@@ -36,7 +37,8 @@ def is_palindrom(s:str) -> bool:
     s = sub(r"[\s\W_]+", "", s)
     return s == s[::-1]
 
-def is_palindrom_sentence(s:str) -> bool:
+
+def is_palindrom_sentence(s: str) -> bool:
     """
     Diese Funktion hat zusätzlich zur oberen die Möglichkeit
     ganze Sätze auf Palindrome zu checken.
@@ -59,7 +61,8 @@ def is_palindrom_sentence(s:str) -> bool:
     s = sub(r"[\s\W_]+", "", s)
     return s == s[::-1]
 
-def palindrom_product(x:int) -> int:
+
+def palindrom_product(x: int) -> int:
     """
     Diese Funktion berechnet das größt mögliche
     Palindrom von zwei 3 stelligen Zahlen.
@@ -86,18 +89,21 @@ def palindrom_product(x:int) -> int:
                     biggest = i * j
     return biggest
 
-def get_dec_hex_palindrom(x:int) -> int:
+
+def get_dec_hex_palindrom(x: int) -> int:
     """
-    Diese Funktion überprüft ob eine Zahl kleiner x sowohl in dezimal als auch in Hexadezimal Darstellung ein Palindrom ist.
+    Diese Funktion überprüft ob eine Zahl kleiner x sowohl in
+    Dezimal als auch in Hexadezimal Darstellung ein Palindrom ist.
     :param x: Obergenze die das Palindrom annehmen kann
     :return: Gibt die Zahl zurück die die Kriterien erfüllt
     """
     if x <= 0:
         return 0
-    for i in range (x - 1, 0, -1):
+    for i in range(x - 1, 0, -1):
         if is_palindrom(str(i)) and is_palindrom(to_base(i, 16)):
             return i
     return 0
+
 
 def to_base(number: int, base: int) -> str:
     """
@@ -114,9 +120,9 @@ def to_base(number: int, base: int) -> str:
         return '0'
     if 0 < base <= 36:
         ZIFFERN = ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-               'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
-               'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-               'U', 'V', 'W', 'X', 'Y', 'Z')
+                   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+                   'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+                   'U', 'V', 'W', 'X', 'Y', 'Z')
         while number > 0:
             num += ZIFFERN[number % base]
             number //= base
