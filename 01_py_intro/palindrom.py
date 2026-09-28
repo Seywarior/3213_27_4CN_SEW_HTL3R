@@ -11,7 +11,7 @@ from re import sub
 
 # Metadaten zu dieser Datei:
 __author__ = "Tobias Wiedeck"
-__example__ = "SEW4/01/F"  # Gegenstand/Übungsblatt/Aufgabe(Kapitel)
+__example__ = "SEW4/01/F1"  # Gegenstand/Übungsblatt/Aufgabe(Kapitel)
 __date__ = "24.09.2026"
 __license__ = "GNU GPLv3"
 
@@ -130,12 +130,9 @@ def to_base(number: int, base: int) -> str:
 
 
 def main() -> None:
-    """
     is_palindrom('Anna')
     is_palindrom_sentence("Was it a car or a cat I saw")
     palindrom_product(1)
-    :return:
-    """
     to_base(10, 10)
 
 
