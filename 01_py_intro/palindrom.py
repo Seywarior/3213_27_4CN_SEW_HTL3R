@@ -1,6 +1,6 @@
 """
-Modul-Dokumentation -- Ähnlich zu JavaDoc.
-Wird angezeigt z.B. mit help(__name__)
+Modul-Dokumentation -- Ähnlich zu Javadoc.
+Wird angezeigt z.B. mit help(__name__).
 Dieses Modul beinhaltet Funktionen zur Bestimmung von Palindromen
 Beispiel:
 >>> is_palindrom('Anna')
@@ -107,7 +107,7 @@ def get_dec_hex_palindrom(x: int) -> int:
 
 def to_base(number: int, base: int) -> str:
     """
-    :param number: Zahl im 10er-Syste,
+    :param number: Zahl im 10er-System,
     :param base: Zielsystem (maximal 36)
     :return: Zahl im Zielsystem als String
     >>> to_base(1234,16)
