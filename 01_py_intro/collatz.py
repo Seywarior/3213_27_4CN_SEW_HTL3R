@@ -32,15 +32,17 @@ def longest_collatz_sequence(n: int) -> Tuple[int, int]:
             biggestPair = [number, collatz_sequence(number).__len__()]
     return biggestPair
 
-def main() -> None:
-    print(collatz_sequence(19))
-    print(longest_collatz_sequence(100))
-
 def collatzP(n:int, p:int = 3) -> int:
     if n % 2 == 0:
         return n//2
     else:
         return p*n+1
+
+def main() -> None:
+    print(collatz_sequence(19))
+    print(longest_collatz_sequence(100))
+    print(collatzP(101, 2))
+
 
 
 if __name__ == "__main__":

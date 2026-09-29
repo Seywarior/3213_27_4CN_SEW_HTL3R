@@ -31,7 +31,6 @@ def is_palindrom(s: str) -> bool:
     AttributeError: 'int' object has no attribute 'lower'
     """
     s = s.lower()
-    s = sub(r"[\s\W_]+", "", s)
     return s == s[::-1]
 
 
@@ -109,11 +108,29 @@ def to_base(number: int, base: int) -> str:
     :return: Zahl im Zielsystem als String
     >>> to_base(1234,16)
     '4D2'
+    >>> to_base(0, 2)
+    '0'
+    >>> to_base(1, 2)
+    '1'
+    >>> to_base(5, 2)
+    '101'
+    >>> to_base(255, 2)
+    '11111111'
+    >>> to_base(255, 16)
+    'FF'
+    >>> to_base(8, 8)
+    '10'
+    >>> to_base(123, 10)
+    '123'
+    >>> to_base(35, 36)
+    'Z'
+    >>> to_base(36, 36)
+    '10'
     """
     num = ''
     if base < 0:
         base = abs(base)
-    if number == 0:
+    if number == 0 or base == 1:
         return '0'
     if 0 < base <= 36:
         ZIFFERN = ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -127,10 +144,10 @@ def to_base(number: int, base: int) -> str:
 
 
 def main() -> None:
-    is_palindrom('Anna')
+    print(is_palindrom('Anna annA'))
     is_palindrom_sentence("Was it a car or a cat I saw")
     palindrom_product(1)
-    to_base(10, 10)
+    to_base(10, 1)
 
 
 if __name__ == "__main__":
