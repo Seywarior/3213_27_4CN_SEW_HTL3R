@@ -2,9 +2,6 @@
 Modul-Dokumentation -- Ähnlich zu Javadoc.
 Wird angezeigt z.B. mit help(__name__).
 Dieses Modul beinhaltet Funktionen zur Bestimmung von Palindromen
-Beispiel:
->>> is_palindrom('Anna')
-True
 """
 
 from re import sub
